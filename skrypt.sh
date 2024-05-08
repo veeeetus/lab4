@@ -15,7 +15,7 @@ if [[ "$1" == "--help" || "$1" == "-h" || "$1" == "-" ]]; then
     display_help
 elif [[ "$1" == "--date" || "$1" == "-d" ]]; then
     date +"Dzisiaj jest %Y-%m-%d"
-elif [[ "$1" == "--logs" || "$1" == "-l" ]]; then
+elif [[ "$1" == "--logs" ]]; then
     if [[ -n "$2" && "$2" =~ ^[0-9]+$ ]]; then
         num_logs="$2"
     else
