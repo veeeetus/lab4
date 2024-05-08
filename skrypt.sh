@@ -6,6 +6,8 @@ display_help() {
     echo "  --date           Wyświetla dzisiejszą datę."
     echo "  --logs [liczba]  Tworzy podaną liczbę plików logów. Domyślnie 100."
     echo "  --init           Klonuje całe repozytorium do katalogu bieżącego i ustawia ścieżkę w zmiennej PATH."
+    echo "  --error [liczba] "
+    echo "                   Tworzy podaną liczbę plików błędów. Domyślnie 100."
     echo "  --help           Wyświetla pomoc."
 }
 
@@ -13,7 +15,7 @@ if [[ "$1" == "--help" || "$1" == "-h" ]]; then
     display_help
 elif [[ "$1" == "--date" ]]; then
     date +"Dzisiaj jest %Y-%m-%d"
-elif [[ "$1" == "--logs" || "$1" == "-l" ]]; then
+elif [[ "$1" == "--logs" ]]; then
     if [[ -n "$2" && "$2" =~ ^[0-9]+$ ]]; then
         num_logs="$2"
     else
@@ -34,6 +36,19 @@ elif [[ "$1" == "--init" ]]; then
     # Dodanie katalogu z repozytorium do zmiennej środowiskowej PATH
     echo "export PATH=\"$current_path/repo:\$PATH\"" >> ~/.bashrc
     echo "Zaktualizowano zmienną środowiskową PATH. Zrestartuj terminal, aby wprowadzić zmiany."
+elif [[ "$1" == "--error" || "$1" == "-e" ]]; then
+    if [[ -n "$2" && "$2" =~ ^[0-9]+$ ]]; then
+        num_errors="$2"
+    else
+        num_errors=100
+    fi
+    
+    mkdir -p errorx
+    
+    for ((i=1; i<=$num_errors; i++)); do
+        error_file="errorx/error$i.txt"
+        echo "Error message $i" > "$error_file"
+    done
 else
     echo "Niepoprawne użycie."
     display_help
