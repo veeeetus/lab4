@@ -3,9 +3,9 @@
 display_help() {
     echo "Użycie: $0 [OPCJA]"
     echo "Dostępne opcje:"
-    echo "  -d, --date           Wyświetla dzisiejszą datę."
-    echo "  -l, --logs [liczba]  Tworzy podaną liczbę plików logów. Domyślnie 100."
-    echo "  -h, --help           Wyświetla pomoc."
+    echo "  --date         Wyświetla dzisiejszą datę."
+    echo "  --logs [liczba]  Tworzy podaną liczbę plików logów. Domyślnie 100."
+    echo "  --help          Wyświetla pomoc."
 }
 
 if [[ "$1" == "--date" || "$1" == "-d" ]]; then
