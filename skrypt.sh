@@ -30,7 +30,7 @@ elif [[ "$1" == "--init" ]]; then
     # Pobieranie bieżącej ścieżki
     current_path=$(pwd)
     # Klonowanie repozytorium do bieżącego katalogu
-    git clone https://example.com/repo.git "$current_path/repo"
+    git clone git@github.com:veeeetus/lab34.git "$current_path/repo"
     # Dodanie katalogu z repozytorium do zmiennej środowiskowej PATH
     echo "export PATH=\"$current_path/repo:\$PATH\"" >> ~/.bashrc
     echo "Zaktualizowano zmienną środowiskową PATH. Zrestartuj terminal, aby wprowadzić zmiany."
