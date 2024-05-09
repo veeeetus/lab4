@@ -32,9 +32,9 @@ elif [[ "$1" == "--init" || "$1" == "-i" ]]; then
     # Pobieranie bieżącej ścieżki
     current_path=$(pwd)
     # Klonowanie repozytorium do bieżącego katalogu
-    git clone git@github.com:veeeetus/lab4.git "$current_path/repo"
+    git clone git@github.com:veeeetus/lab4.git "$current_path/lab4"
     # Dodanie katalogu z repozytorium do zmiennej środowiskowej PATH
-    echo "export PATH=\"$current_path/repo:\$PATH\"" >> ~/.bashrc
+    echo "export PATH=\"$current_path/lab4:\$PATH\"" >> ~/.bashrc
     echo "Zaktualizowano zmienną środowiskową PATH. Zrestartuj terminal, aby wprowadzić zmiany."
 elif [[ "$1" == "--error" || "$1" == "-e" ]]; then
     if [[ -n "$2" && "$2" =~ ^[0-9]+$ ]]; then
