@@ -15,7 +15,7 @@ if [[ "$1" == "--help" || "$1" == "-h" || "$1" == "-" ]]; then
     display_help
 elif [[ "$1" == "--date" || "$1" == "-d" ]]; then
     date +"Dzisiaj jest %Y-%m-%d"
-elif [[ "$1" == "--logs" ]]; then
+elif [[ "$1" == "--logs" || "$1" == "-l" ]]; then
     if [[ -n "$2" && "$2" =~ ^[0-9]+$ ]]; then
         num_logs="$2"
     else
@@ -32,7 +32,7 @@ elif [[ "$1" == "--init" || "$1" == "-i" ]]; then
     # Pobieranie bieżącej ścieżki
     current_path=$(pwd)
     # Klonowanie repozytorium do bieżącego katalogu
-    git clone git@github.com:veeeetus/lab34.git "$current_path/repo"
+    git clone https://example.com/repo.git "$current_path/repo"
     # Dodanie katalogu z repozytorium do zmiennej środowiskowej PATH
     echo "export PATH=\"$current_path/repo:\$PATH\"" >> ~/.bashrc
     echo "Zaktualizowano zmienną środowiskową PATH. Zrestartuj terminal, aby wprowadzić zmiany."
